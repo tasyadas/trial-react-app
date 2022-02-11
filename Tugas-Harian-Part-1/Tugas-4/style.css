@@ -6,7 +6,18 @@
 
 
 /* Buatlah styling section top dibawah ini */
+.top {
+    text-align: center;
+    margin-top: 2rem;
+}
 
+.top * {
+    margin-bottom: 2rem;
+}
+
+img {
+    width: 100%;
+}
 
 
 /* Buatlah styling section container dan card dibawah ini */
