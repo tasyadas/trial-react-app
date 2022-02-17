@@ -6,7 +6,7 @@ let dataFilm = []
 
 let tambahDataFilm = (...data) => {
     const [nama, durasi, genre, tahun] = data
-    
+
     dataFilm.push({nama, durasi, genre, tahun});
 }
 
