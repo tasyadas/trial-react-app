@@ -1,0 +1,37 @@
+.App {
+  /* border: 0.5px solid black; */
+  box-shadow: 2px 0px 8px 0px gray;
+  margin: 30px auto;
+  width: 30%;
+}
+
+.App>.Box>hr {
+  height: 1px;
+  /* Set the hr color */
+  color: grey; /* old IE */
+  background-color: grey; /* Modern Browsers */
+}
+
+.Box {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+h1 {
+  color: #acadad;
+  font-weight: normal;
+}
+
+.Button {
+  background-color: #51b9f5;
+  width: 100%;
+  height: 40px;
+  color: white;
+  text-align: center;
+  border: #51b9f5;
+}
+
+.Todo {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
