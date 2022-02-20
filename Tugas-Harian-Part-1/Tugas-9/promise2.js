@@ -30,7 +30,7 @@ const filteredBook = async (data) => {
         console.log(resp);
         if(data.length > 1) filteredBook(data.slice(1));
     })
-    .catch((err) => { console.log(err) })
+    .catch((err) => { console.log(err.message) })
 }
 
 filteredBook(collection);
