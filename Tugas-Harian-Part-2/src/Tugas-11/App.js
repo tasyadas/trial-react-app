@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const FormBuah = (...props) => {
-  let [buah, setBuah] = props
-  console.log(buah);
+const FormBuah = (props) => {
+  let buah = props.buah
+  let setBuah = props.setBuah
+  
   const [inputName, setInputName] = useState("")
   const [inputHargaTotal, setInputHargaTotal] = useState("")
   const [inputBeratTotal, setInputBeratTotal] = useState("")
@@ -16,6 +17,7 @@ const FormBuah = (...props) => {
   
   const handleSubmit = (event) => {
     event.preventDefault()
+    console.log(buah);
     setBuah([...buah, 
       {
         nama: inputName,
@@ -35,9 +37,18 @@ const FormBuah = (...props) => {
       Masukkan nama buah:
     </label>         
     <input type="text" value={inputName} onChange={handleChange}/>
+    <br></br>
+    <label>
+      Masukkan Total Harga buah:
+    </label>
     <input type="text" value={inputHargaTotal} onChange={handleChange}/>
+    <br></br>
+    <label>
+      Masukkan Total Berat buah:
+    </label>
     <input type="text" value={inputBeratTotal} onChange={handleChange}/>
-    <input type="submit" value="Submit" />
+    <br></br>
+    <button>submit</button>
   </form>
   )
 }
