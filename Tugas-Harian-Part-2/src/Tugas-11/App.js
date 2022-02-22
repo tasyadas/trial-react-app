@@ -93,7 +93,7 @@ const List = () => {
                   <td>{val.nama}</td>
                   <td>{val.hargaTotal}</td>
                   <td>{val.beratTotal}</td>
-                  <td>{val.hargaTotal / val.beratTotal}</td>
+                  <td>{val.hargaTotal / (val.beratTotal/1000)}</td>
                   <td><button>Edit</button></td>
                   <td><button>Delete</button></td>
                 </tr>
