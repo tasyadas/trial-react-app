@@ -4,16 +4,15 @@ import './App.css';
 const FormBuah = (props) => {
   let buah = props.buah
   let setBuah = props.setBuah
+  console.log(buah);
   
   const [inputName, setInputName] = useState("")
   const [inputHargaTotal, setInputHargaTotal] = useState("")
   const [inputBeratTotal, setInputBeratTotal] = useState("")
 
-  const handleChange = (event) => {
-    setInputName(event.target.value.inputName)
-    setInputHargaTotal(event.target.value.inputHargaTotal)
-    setInputBeratTotal(event.target.value.inputBeratTotal)
-  }
+  console.log(inputName);
+  console.log(inputHargaTotal);
+  console.log(inputBeratTotal);
   
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -36,17 +35,23 @@ const FormBuah = (props) => {
     <label>
       Masukkan nama buah:
     </label>         
-    <input type="text" value={inputName} onChange={handleChange}/>
+    <input type="text" value={inputName} onChange={(event) => {
+      setInputName(event.target.value)
+    }}/>
     <br></br>
     <label>
       Masukkan Total Harga buah:
     </label>
-    <input type="text" value={inputHargaTotal} onChange={handleChange}/>
+    <input type="text" value={inputHargaTotal} onChange={(event) => {
+      setInputHargaTotal(event.target.value)
+    }}/>
     <br></br>
     <label>
       Masukkan Total Berat buah:
     </label>
-    <input type="text" value={inputBeratTotal} onChange={handleChange}/>
+    <input type="text" value={inputBeratTotal} onChange={(event) => {
+      setInputBeratTotal(event.target.value)
+    }}/>
     <br></br>
     <button>submit</button>
   </form>
