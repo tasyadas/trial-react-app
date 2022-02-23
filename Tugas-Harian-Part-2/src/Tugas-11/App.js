@@ -4,11 +4,11 @@ import './App.css';
 const FormBuah = (props) => {
   let buah = props.buah
   let setBuah = props.setBuah
-  console.log(buah);
+  console.log(props.editBuah);
   
-  const [inputName, setInputName] = useState("")
-  const [inputHargaTotal, setInputHargaTotal] = useState("")
-  const [inputBeratTotal, setInputBeratTotal] = useState("")
+  const [inputName, setInputName] = useState(props.editBuah ? props.editBuah.nama : "")
+  const [inputHargaTotal, setInputHargaTotal] = useState(props.editBuah ? props.editBuah.inputHargaTotal : "")
+  const [inputBeratTotal, setInputBeratTotal] = useState(props.editBuah ? props.editBuah.inputBeratTotal : "")
 
   console.log(inputName);
   console.log(inputHargaTotal);
@@ -16,15 +16,26 @@ const FormBuah = (props) => {
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(buah);
-    setBuah([...buah, 
-      {
-        nama: inputName,
-        hargaTotal: inputHargaTotal,
-        beratTotal: inputBeratTotal
-      }
-    ])
 
+    if (props.editBuah) {
+      buah.map((val) => {
+        if (val.name === props.editBuah) {
+          val.name = inputName
+          val.hargaTotal = inputHargaTotal
+          val.beratTotal = inputBeratTotal
+        }
+      })
+
+      setBuah(buah)
+    } else {
+      setBuah([...buah, 
+        {
+          nama: inputName,
+          hargaTotal: inputHargaTotal,
+          beratTotal: inputBeratTotal
+        }
+      ])
+    }
     setInputName("")
     setInputHargaTotal("")
     setInputBeratTotal("")
@@ -59,15 +70,14 @@ const FormBuah = (props) => {
 }
 
 const List = () => {
-  const [buah, setBuah] = useState(
-    [
-      {nama: "Nanas", hargaTotal: 100000, beratTotal: 4000 },
-      {nama: "Manggis", hargaTotal: 350000, beratTotal: 10000},
-      {nama: "Nangka", hargaTotal: 90000, beratTotal: 2000},
-      {nama: "Durian", hargaTotal: 400000, beratTotal: 5000},
-      {nama: "Strawberry", hargaTotal: 120000, beratTotal: 6000}
-    ]
-  )
+  const [buah, setBuah] = useState([
+    {nama: "Nanas", hargaTotal: 100000, beratTotal: 4000 },
+    {nama: "Manggis", hargaTotal: 350000, beratTotal: 10000},
+    {nama: "Nangka", hargaTotal: 90000, beratTotal: 2000},
+    {nama: "Durian", hargaTotal: 400000, beratTotal: 5000},
+    {nama: "Strawberry", hargaTotal: 120000, beratTotal: 6000}
+  ])
+  const [selectedBuah, setSelectedBuah] = useState({});
 
   return (
     <>
@@ -94,7 +104,7 @@ const List = () => {
                   <td>{val.hargaTotal}</td>
                   <td>{val.beratTotal}</td>
                   <td>{val.hargaTotal / (val.beratTotal/1000)}</td>
-                  <td><button>Edit</button></td>
+                  <td><button onClick={() => { setSelectedBuah(val) }}>Edit</button></td>
                   <td><button>Delete</button></td>
                 </tr>
               )
@@ -104,7 +114,7 @@ const List = () => {
         </tbody>
       </table>
 
-      <FormBuah buah={buah} setBuah={setBuah} />
+      <FormBuah buah={buah} setBuah={setBuah} editBuah={selectedBuah} />
     </>
   )
 
