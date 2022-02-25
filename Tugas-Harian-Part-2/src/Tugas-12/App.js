@@ -122,7 +122,7 @@ const List = () => {
   
     return (
       <>
-        <h1>Daftar Harga Mahasiswa</h1>
+        <h1>Daftar Mahasiswa</h1>
         <table>
           <thead>
             <tr>
