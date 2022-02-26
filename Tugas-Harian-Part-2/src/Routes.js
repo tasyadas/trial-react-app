@@ -4,6 +4,7 @@ import App2 from './Tugas-11/App';
 import App3 from './Tugas-12/App';
 import App4 from './Tugas-13/Mhs';
 import App5 from './Tugas-14/Mhs';
+import App6 from './Tugas-15/Mhs';
 
 import { Switch, Route, BrowserRouter as Router, Link } from "react-router-dom";
 import './Route.css';
@@ -26,6 +27,9 @@ const Nav = () => {
         </li>
         <li>
           <Link to="/tugas-14">Tugas 14</Link>
+        </li>
+        <li>
+          <Link to="/tugas-15">Tugas 15</Link>
         </li>
       </ul>
     </>
@@ -52,6 +56,9 @@ const Routes = () => {
         </Route>
         <Route exact path="/tugas-14">
           <App5 />
+        </Route>
+        <Route exact path="/tugas-15">
+          <App6 />
         </Route>
       </Switch>
     </Router>
