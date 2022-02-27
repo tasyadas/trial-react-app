@@ -8,6 +8,7 @@ export const MhsProvider = props => {
     const [inputName, setInputName] = useState("")
     const [inputCourse, setInputCourse] = useState("")
     const [inputScore, setInputScore] = useState("")
+    const [navBlackColor, setNavBlackColor] = useState(false)
     
     const [currentId, setCurrentId] =  useState(null)
 
@@ -133,7 +134,9 @@ export const MhsProvider = props => {
             inputCourse,
             setInputCourse,
             inputScore,
-            setInputScore
+            setInputScore,
+            navBlackColor,
+            setNavBlackColor
         }}>
         {props.children}
         </MhsContext.Provider>

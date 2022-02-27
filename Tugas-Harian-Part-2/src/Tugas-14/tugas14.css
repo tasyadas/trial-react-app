@@ -1,0 +1,27 @@
+.middle-box {
+    padding-top: 20px;
+}
+
+.title {
+    /* text-align: end; */
+    text-align: center;
+}
+
+table {
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+
+.createStudent {
+    margin-left: 25%;
+}
+
+.FormMahasiswa {
+    border: 1px solid black;
+    display: grid;
+    width: 50%;
+    position: relative;
+    left: 25%;
+    margin-top: 10%;
+}

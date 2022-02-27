@@ -1,15 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+} 
+
 ul {
     display: flex;
     width: 100%;
     justify-content: space-around;
-    background-color: blanchedalmond;
+    height: 50px;
+}
+
+.ivory {
+    background-color: ivory;
+}
+
+.ivory>li a {
+    color: black;
+}
+
+.black {
+    background-color: black;
+}
+
+.black>li a {
+    color: white;
 }
 
 li {
     list-style: none;
+    padding-top: 15px;
 }
 
 li a {
     text-decoration: none;
-    color: black;
 }
