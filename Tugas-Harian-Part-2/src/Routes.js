@@ -4,11 +4,13 @@ import App2 from './Tugas-11/App';
 import App3 from './Tugas-12/App';
 import App4 from './Tugas-13/Mhs';
 import App5 from './Tugas-14/MhsList';
-import App6 from './Tugas-15/Mhs';
-import App7 from './Tugas-14/MhsFormProvider';
-import {MhsProvider, MhsContext} from "./Tugas-13/MhsContext"
+import App6 from './Tugas-15/MhsList';
+import App7 from './Tugas-14/MhsForm';
+import App8 from './Tugas-15/MhsForm';
 
+import {MhsProvider, MhsContext} from "./Tugas-13/MhsContext"
 import { Switch, Route, BrowserRouter as Router, Link } from "react-router-dom";
+
 import './Route.css';
 
 const Nav = () => {
@@ -68,10 +70,12 @@ const Routes = () => {
         <Route exact path="/tugas-14-form">
           <App7 />
         </Route>
+        <Route exact path="/tugas-15-form">
+          <App8 />
+        </Route>
       </Switch>
     </Router>
     </MhsProvider>
-
   );
 };
 

@@ -1,44 +1,65 @@
 import React, {useContext} from "react"
-import {MhsContext} from "../Tugas-13/MhsContext"
+import { Button, Table, Tag, Space } from 'antd';
+import { useHistory } from "react-router-dom";
+import { MhsContext } from "../Tugas-13/MhsContext"
 import '../Tugas-13/App.css';
+
+
+
+function FormMhsButton() {
+    let history = useHistory();
+  
+    function handleClick() {
+      history.push("/tugas-14-form");
+    }
+  
+    return (
+      <Button className="createStudent" type="primary" onClick={handleClick}>Buat Data Nilai Mahasiswa Baru</Button>
+    );
+}
 
 const MhsList1 = () =>{
   const {mahasiswa, handleEdit, handleDelete} = useContext(MhsContext)
 
+  const columns = [
+    {
+        title: 'Nama',
+        dataIndex: 'name',
+        key: 'name',
+    },
+    {
+        title: 'Mata Kuliah',
+        dataIndex: 'course',
+        key: 'course',
+    },
+    {
+        title: 'Nilai',
+        dataIndex: 'score',
+        key: 'score',
+    },
+    {
+        title: 'Indeks Nilai',
+        dataIndex: 'index',
+        key: 'index',
+    },
+    {
+        title: 'Action',
+        key: 'action',
+        dataIndex: 'id',
+        render: (id) => (
+            <Space size="middle">
+            <button onClick={handleEdit} value={id}>Edit</button>
+            <button onClick={handleDelete} value={id}>Delete</button>
+            </Space>
+        ),
+    }
+  ];
+
     return(
         <>
             <h1>Daftar Mahasiswa</h1>
-            <table>
-            <thead>
-                <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Mata Kuliah</th>
-                <th>Nilai</th>
-                <th>Indeks Nilai</th>
-                <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            {
-                mahasiswa.map((val, index) => {
-                    return (
-                    <tr>
-                        <td>{index + 1}</td>
-                        <td>{val.name}</td>
-                        <td>{val.course}</td>
-                        <td>{val.score}</td>
-                        <td>{val.index}</td>
-                        <td><button onClick={handleEdit} value={val.id}>Edit</button></td>
-                        <td><button onClick={handleDelete} value={val.id}>Delete</button></td>
-                    </tr>
-                    )
-                })
-            }
-
-            </tbody>
-            </table>
+            <FormMhsButton />
+            <Table dataSource={mahasiswa} columns={columns} />;
         </>
     )
 
