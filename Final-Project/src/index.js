@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Routes from './Router';
 import reportWebVitals from './reportWebVitals';
+import {MovieProvider} from './context/MovieContext';
+import {GameProvider} from './context/GameContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MovieProvider>
+    <GameProvider>
+    <Routes />
+    </GameProvider>
+    </MovieProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
