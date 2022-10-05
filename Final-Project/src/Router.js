@@ -95,7 +95,7 @@ const Routes = () => {
           </Content>
         </Layout>
       </Content>
-        <Footer style={{ textAlign: 'center' }}>Final Project ReactJS Sanbercode</Footer>
+        <Footer style={{ textAlign: 'center' }}>Final Project ReactJS</Footer>
     </Layout>
     </Router>)
 }
