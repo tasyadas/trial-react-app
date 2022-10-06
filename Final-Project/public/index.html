@@ -46,8 +46,23 @@
           "payload": {
               "name": "Riska", 
               "phoneNumber": "08151515121"
-          }
+          },
+          "hideChatButton": "true"
       };(function () {var w=window,ic=w.YellowMessenger;if("function"===typeof ic)ic("reattach_activator"),ic("update",ymConfig);else{var d=document,i=function(){i.c(arguments)};function l(){var e=d.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://cdn.yellowmessenger.com/plugin/widget-v2/latest/dist/main.min.js";var t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}i.q=[],i.c=function(e){i.q.push(e)},w.YellowMessenger=i,w.attachEvent?w.attachEvent("onload",l):w.addEventListener("load",l,!1)}})();
+
+      window.addEventListener('message', function(eventData) {
+
+        // make sure to verify origin to prevent XSS attacks.
+        // https://blog.yeswehack.com/yeswerhackers/introduction-postmessage-vulnerabilities/
+        // if (event.origin !== <your_origin>) throw new Error('Message not allowed");
+        eventData = JSON.parse(eventData.data)
+
+        console.log(eventData, "eventData"); //Check incoming eventData
+
+        if(eventData.event_code == 'ym-bot-closed') {
+          hideBot()
+        }
+      })
       
       function showBot() {
         window.YellowMessengerPlugin.show()

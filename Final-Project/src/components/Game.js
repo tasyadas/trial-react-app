@@ -1,6 +1,6 @@
-import React, {useState, useContext, useEffect} from "react"
+import React, {useState, useContext, useEffect} from "react";
 import { Table, Space, Divider, Button, Collapse } from 'antd';
-import { GameContext } from "../context/GameContext"
+import { GameContext } from "../context/GameContext";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios"
 
@@ -161,8 +161,6 @@ const GameList = () => {
             <Divider orientation="left">Data Game</Divider>
             <Button type="primary"><Link to="/game/create">Buat Data Movie Baru</Link></Button>
             <Table dataSource={games} columns={columns} />
-            <button type="button" onClick={window.showBot}>Click to show</button>
-            <button type="button" onClick={window.hideBot}>Click to hide</button>
         </>
     )
 

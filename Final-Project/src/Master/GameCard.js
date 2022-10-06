@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import { Card, Divider, Col, Row } from 'antd';
 import { GameContext } from "../context/GameContext"
 import { useHistory } from "react-router-dom";
@@ -50,6 +50,8 @@ function App() {
         </>)}
         </Row>
       </div>
+      <button type="button" onClick={window.showBot}>Click to show</button>
+
     </>
   );
 }
